@@ -1,11 +1,9 @@
-QT += core gui widgets
+QT += core gui widgets qml
 OBJECTS_DIR = obj
 MOC_DIR = moc
 DESTDIR = bin
-TARGET = mx2482
+TARGET = qmx2482
 TEMPLATE = app
-QMAKE_CXXFLAGS -= -O2
-QMAKE_CXXFLAGS += -O3
 CONFIG -= console
 CONFIG += flat
 
@@ -32,7 +30,8 @@ SOURCES += \
     qjack/qsamplebuffer.cpp \
     qjack/qsignalgenerator.cpp \
     qjack/qunits.cpp \
-    src/channel.cpp
+    src/channel.cpp \
+    src/mixer.cpp
 
 HEADERS += \
     mainwindow.h \
@@ -52,7 +51,8 @@ HEADERS += \
     qjack/qsamplebuffer.h \
     qjack/qsignalgenerator.h \
     qjack/qunits.h \
-    src/channel.h
+    src/channel.h \
+    src/mixer.h
 
 FORMS += \
     mainwindow.ui \

@@ -22,12 +22,24 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include <QApplication>
-#include "mainwindow.h"
+#include <QQmlApplicationEngine>
+
+#include "qjack/qjackclient.h"
+#include "qjack/qaudioprocessor.h"
+#include <QAudioProcessor>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    MainWindow w;
-    w.show();
+
+    QJackClient* jackClient = QJackClient::instance();
+    QAudioProcessor *aprocessor = new QAudioProcessor();
+
+    if(jackClient->connectToServer("QMX2482")) {
+        jackClient->setAudioProcessor(aprocessor);
+    }
+
+    QQmlApplicationEngine engine;
+
     return a.exec();
 }
