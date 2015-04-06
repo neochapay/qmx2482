@@ -40,29 +40,29 @@ public:
     void isInSubGroup56(bool state){inSubGroup56 = state;}
     void isInSubGroup78(bool state){inSubGroup78 = state;}
 
-    void setHiDial(double value){_hiDial = value;}
-    double getHiDial(){return _hiDial;}
-    void setMidDial(double value){_midDial = value;}
-    double getMidDial(){return _midDial;}
-    void setLoDial(double value){_loDial = value;}
-    double getLoDial(){return _loDial;}
-
     void setVolume(double value){_faderStage->setGain(value);}
     double getVolume(){return _faderStage->gain();}
-    void setGain(double value){_gain = value;}
-    double getGain(){return _gain;}
+    void setGain(double value){_inputStage->setGain(value);}
+    double getGain(){return _inputStage->gain();}
 
-    void setAuxSend(double value){_auxSendDial = value;}
-    double getAuxSend(){return _auxSendDial;}
-    void setAuxReturn(double value){_auxReturnDial = value;}
-    double getAuxReturn(){return _auxReturnDial;}
+    void setAuxSend(int value){_auxPre->setGain(value);}
+    int getAuxSend(){return _auxPre->gain();}
+    void setAuxReturn(int value){_auxPost->setGain(value);}
+    int getAuxReturn(){return _auxPost->gain();}
 
-    void setHiFreqDial(double value){_hiFreqDial = value;}
-    double getHiFreqDial(){return _hiFreqDial;}
-    void setMidFreqDial(double value){_midFreqDial = value;}
-    double getMidFreqDial(){return _midFreqDial;}
-    void setLoFreqDial(double value){_loFreqDial = value;}
-    double getLoFreqDial(){return _loFreqDial;}
+    void setHiFreqDial(double value){_highsEqControl->setControlFrequency(value);}
+    int getHiFreqDial(){return _highsEqControl->controlFrequency();}
+    void setMidFreqDial(double value){_midsEqControl->setControlFrequency(value);}
+    int getMidFreqDial(){return _midsEqControl->controlFrequency();}
+    void setLoFreqDial(int value){_lowsEqControl->setControlFrequency(value);}
+    int getLoFreqDial(){return _lowsEqControl->controlFrequency();}
+
+    void setHiDial(int value){_highsEqControl->setAmount(value);}
+    int getHiDial(){return _highsEqControl->amount();}
+    void setMidDial(int value){_midsEqControl->setAmount(value);}
+    int getMidDial(){return _midsEqControl->amount();}
+    void setLoDial(int value){_lowsEqControl->setAmount(value);}
+    int getLoDial(){return _lowsEqControl->amount();}
 
     /** @returns whether this channel has been muted. */
     bool isMuted();
@@ -117,15 +117,6 @@ private:
 
     /** Last peak value. */
     double _peakDb;
-    double _hiDial;
-    double _hiFreqDial;
-    double _midFreqDial;
-    double _midDial;
-    double _loFreqDial;
-    double _loDial;
-    double _auxSendDial;
-    double _auxReturnDial;
-    double _gain;
 
    //Controls variable
     bool _equalizerOn;

@@ -204,19 +204,21 @@ void Channel::stateFromJson(QJsonObject jsonObject)
 
 void Channel::resetControls()
 {
-    _gain = 0;
+    _inputStage->setGain(0);
     _faderStage->setGain(0);
 
+    _highsEqControl->setControlFrequency(12000);
+    _highsEqControl->setAmount(0);
+    _midsEqControl->setControlFrequency(4000);
+    _midsEqControl->setAmount(0);
+    _lowsEqControl->setControlFrequency(200);
+    _lowsEqControl->setAmount(0);
+
     _equalizerOn = false;
-    _hiDial = 0;
-    _midFreqDial = 4000;
-    _midDial = 0;
-    _loFreqDial = 200;
-    _loDial = 0;
 
     _auxOn = false;
-    _auxSendDial = 0;
-    _auxReturnDial = 0;
+    _auxPre->setGain(0);
+    _auxPost->setGain(0);
 
     _muteState = false;
     _soloState = false;
