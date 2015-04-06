@@ -1,5 +1,5 @@
 #include "mixer.h"
-#include "channel.h"
+#include "../src/channel.h"
 #include <QJackClient>
 
 Mixer::Mixer(QObject *parent) : QObject(parent)
@@ -251,7 +251,6 @@ void Mixer::resetControls()
     subgroup8Main = true;
 
     foreach(Channel *channel, _registeredChannels) {
-        //FIXIT
-        //channel->resetControls();
+        channel->resetControls();
     }
 }

@@ -201,3 +201,30 @@ void Channel::stateFromJson(QJsonObject jsonObject)
 
     setOnMainState(jsonObject.value("onMain").toBool());
 }
+
+void Channel::resetControls()
+{
+    _gain = 0;
+    _faderStage->setGain(0);
+
+    _equalizerOn = false;
+    _hiDial = 0;
+    _midFreqDial = 4000;
+    _midDial = 0;
+    _loFreqDial = 200;
+    _loDial = 0;
+
+    _auxOn = false;
+    _auxSendDial = 0;
+    _auxReturnDial = 0;
+
+    _muteState = false;
+    _soloState = false;
+    _mainState = false;
+
+    inSubGroup12 = false;
+    inSubGroup34 = false;
+    inSubGroup56 = false;
+    inSubGroup78 = false;
+}
+

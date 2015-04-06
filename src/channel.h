@@ -40,6 +40,30 @@ public:
     void isInSubGroup56(bool state){inSubGroup56 = state;}
     void isInSubGroup78(bool state){inSubGroup78 = state;}
 
+    void setHiDial(double value){_hiDial = value;}
+    double getHiDial(){return _hiDial;}
+    void setMidDial(double value){_midDial = value;}
+    double getMidDial(){return _midDial;}
+    void setLoDial(double value){_loDial = value;}
+    double getLoDial(){return _loDial;}
+
+    void setVolume(double value){_faderStage->setGain(value);}
+    double getVolume(){return _faderStage->gain();}
+    void setGain(double value){_gain = value;}
+    double getGain(){return _gain;}
+
+    void setAuxSend(double value){_auxSendDial = value;}
+    double getAuxSend(){return _auxSendDial;}
+    void setAuxReturn(double value){_auxReturnDial = value;}
+    double getAuxReturn(){return _auxReturnDial;}
+
+    void setHiFreqDial(double value){_hiFreqDial = value;}
+    double getHiFreqDial(){return _hiFreqDial;}
+    void setMidFreqDial(double value){_midFreqDial = value;}
+    double getMidFreqDial(){return _midFreqDial;}
+    void setLoFreqDial(double value){_loFreqDial = value;}
+    double getLoFreqDial(){return _loFreqDial;}
+
     /** @returns whether this channel has been muted. */
     bool isMuted();
     void setMutedState(bool state);
@@ -93,6 +117,15 @@ private:
 
     /** Last peak value. */
     double _peakDb;
+    double _hiDial;
+    double _hiFreqDial;
+    double _midFreqDial;
+    double _midDial;
+    double _loFreqDial;
+    double _loDial;
+    double _auxSendDial;
+    double _auxReturnDial;
+    double _gain;
 
    //Controls variable
     bool _equalizerOn;
