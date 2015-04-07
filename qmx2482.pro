@@ -1,10 +1,6 @@
-QT += core gui widgets qml
-OBJECTS_DIR = obj
-MOC_DIR = moc
-DESTDIR = bin
-TARGET = qmx2482
+QT += core gui widgets qml quick
+
 TEMPLATE = app
-CONFIG -= console
 CONFIG += flat
 
 INCLUDEPATH += qjack
@@ -14,11 +10,7 @@ LIBS += -L -lqjackaudio \
                 -lfftw3
 
 SOURCES += \
-    mainwindow.cpp \
     main.cpp \
-    channelwidget.cpp \
-    mainmixerwidget.cpp \
-    aboutdialog.cpp \
     qjack/qamplifier.cpp \
     qjack/qcompressor.cpp \
     qjack/qequalizer.cpp \
@@ -34,10 +26,6 @@ SOURCES += \
     src/mixer.cpp
 
 HEADERS += \
-    mainwindow.h \
-    channelwidget.h \
-    mainmixerwidget.h \
-    aboutdialog.h \
     qjack/qamplifier.h \
     qjack/qaudioprocessor.h \
     qjack/qcompressor.h \
@@ -53,12 +41,6 @@ HEADERS += \
     qjack/qunits.h \
     src/channel.h \
     src/mixer.h
-
-FORMS += \
-    mainwindow.ui \
-    channelwidget.ui \
-    mainmixerwidget.ui \
-    aboutdialog.ui
 
 RESOURCES += \
     resources.qrc
